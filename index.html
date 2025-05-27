@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>컴퓨터 견적 사이트</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script>
+    function loadPage(page) {
+      document.getElementById('content-frame').src = page;
+    }
+  </script>
+</head>
+<body>
+  <div class="sidebar">
+    <div class="site-header">
+      <h1>컴퓨터 견적 사이트</h1>
+    </div>
+
+    <div class="login-form">
+      <input type="text" placeholder="아이디" id="login-id" />
+      <input type="password" placeholder="비밀번호" id="login-pw" />
+      <div class="login-buttons">
+        <button class="login-btn">로그인</button>
+        <button class="signup-btn" onclick="loadPage('signup.html')">회원가입</button>
+      </div>
+    </div>
+
+    <nav class="menu">
+      <ul>
+        <li><a href="#" onclick="loadPage('home.html')">홈</a></li>
+        <li><a href="#" onclick="loadPage('pcbuild.html')">PC 견적</a></li>
+        <li class="dropdown-parent">
+          <a class="dropdown-toggle" href="#">커뮤니티 ▼</a>
+          <ul class="dropdown">
+            <li><a href="#" onclick="loadPage('freeboard.html')">자유게시판</a></li>
+            <li><a href="#" onclick="loadPage('reviewboard.html')">후기게시판</a></li>
+            <li><a href="#" onclick="loadPage('qna.html')">Q&A</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <header>
+    <input type="text" placeholder="검색..." class="search-input" />
+  </header>
+
+  <main>
+    <iframe id="content-frame" src="home.html"></iframe>
+  </main>
+</body>
+</html>

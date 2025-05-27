@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>Q&A 게시판</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      font-size: 14px;
+    }
+    h2 {
+      margin-bottom: 10px;
+    }
+    .board-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+    .board-header h2 {
+      font-size: 18px;
+    }
+    .write-btn {
+      background-color: #3498db;
+      color: white;
+      padding: 6px 12px;
+      border: none;
+      cursor: pointer;
+      font-size: 13px;
+      border-radius: 4px;
+    }
+    .write-btn:hover {
+      background-color: #2980b9;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+    }
+    th, td {
+      padding: 10px;
+      text-align: left;
+      border-bottom: 1px solid #ccc;
+    }
+    tr:hover {
+      background-color: #f5f5f5;
+      cursor: pointer;
+    }
+    .post-title {
+      color: #3498db;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="board-header">
+    <h2>Q&A 게시판</h2>
+    <button class="write-btn" onclick="location.href='write.html'">글쓰기</button>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>번호</th>
+        <th>제목</th>
+        <th>작성자</th>
+        <th>날짜</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr onclick="location.href='view.html'">
+        <td>1</td>
+        <td><a class="post-title">질문 있습니다!</a></td>
+        <td>user03</td>
+        <td>2025-05-28</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>

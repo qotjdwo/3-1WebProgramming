@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>글쓰기</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      font-size: 14px;
+    }
+    form {
+      max-width: 600px;
+      margin: auto;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      box-sizing: border-box;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 15px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #2980b9;
+    }
+  </style>
+</head>
+<body>
+  <h2>글쓰기</h2>
+  <form>
+    <label for="board">게시판 선택</label>
+    <select id="board" name="board">
+      <option value="freeboard">자유게시판</option>
+      <option value="reviewboard">후기게시판</option>
+      <option value="qna">Q&A 게시판</option>
+    </select>
+
+    <label for="title">제목</label>
+    <input type="text" id="title" name="title" required />
+
+    <label for="content">내용</label>
+    <textarea id="content" name="content" rows="10" required></textarea>
+
+    <button type="submit">작성 완료</button>
+  </form>
+</body>
+</html>

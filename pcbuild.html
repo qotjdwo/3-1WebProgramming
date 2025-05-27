@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PC 견적</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .pc-container {
+      display: flex;
+      height: 100%;
+      padding: 20px;
+    }
+    .parts-list {
+      width: 200px;
+      background-color: #f0f0f0;
+      padding: 10px;
+      border-right: 1px solid #ccc;
+    }
+    .parts-list button {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+      padding: 8px;
+      background-color: #444;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .parts-list button:hover {
+      background-color: #666;
+    }
+    .items-display {
+      flex: 1;
+      padding: 10px;
+    }
+    .item {
+      padding: 8px;
+      margin-bottom: 5px;
+      border: 1px solid #ccc;
+      background-color: #fff;
+      cursor: pointer;
+    }
+    .item:hover {
+      background-color: #eee;
+    }
+    .selected-items {
+      width: 300px;
+      background-color: #fafafa;
+      padding: 10px;
+      border-left: 1px solid #ccc;
+    }
+    .selected-items h3 {
+      margin-bottom: 10px;
+    }
+    .selected-item {
+      margin-bottom: 8px;
+    }
+    .total-price {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <div class="pc-container">
+    <div class="parts-list">
+      <button onclick="showItems('cpu')">CPU</button>
+      <button onclick="showItems('gpu')">그래픽카드</button>
+      <button onclick="showItems('mainboard')">메인보드</button>
+      <button onclick="showItems('ram')">RAM</button>
+      <button onclick="showItems('ssd')">SSD</button>
+      <button onclick="showItems('hdd')">HDD</button>
+      <button onclick="showItems('psu')">파워</button>
+      <button onclick="showItems('cooler')">쿨러</button>
+      <button onclick="showItems('case')">케이스</button>
+    </div>
+    <div class="items-display" id="items-display">
+      <p>왼쪽에서 부품을 선택하세요.</p>
+    </div>
+    <div class="selected-items">
+      <h3>선택한 부품</h3>
+      <div id="selected-items"></div>
+      <div class="total-price">총합: <span id="total-price">0</span> 원</div>
+    </div>
+  </div>
+
+  <script>
+    const components = {
+      cpu: [
+        { name: 'Intel i5-12400F', price: 200000 },
+        { name: 'AMD Ryzen 5 5600X', price: 230000 },
+      ],
+      gpu: [
+        { name: 'NVIDIA RTX 4060', price: 450000 },
+        { name: 'AMD RX 6600 XT', price: 400000 },
+      ],
+      mainboard: [
+        { name: 'ASUS B660M', price: 150000 },
+        { name: 'MSI B550M', price: 140000 },
+      ],
+      ram: [
+        { name: 'Samsung DDR4 16GB', price: 60000 },
+        { name: 'Corsair Vengeance 16GB', price: 70000 },
+      ],
+      ssd: [
+        { name: 'Samsung 980 500GB', price: 80000 },
+        { name: 'WD Blue 500GB', price: 75000 },
+      ],
+      hdd: [
+        { name: 'Seagate 1TB', price: 50000 },
+        { name: 'WD Blue 1TB', price: 55000 },
+      ],
+      psu: [
+        { name: 'Corsair 650W', price: 80000 },
+        { name: 'Seasonic 600W', price: 75000 },
+      ],
+      cooler: [
+        { name: 'Cooler Master Hyper 212', price: 35000 },
+        { name: 'Noctua NH-U12S', price: 70000 },
+      ],
+      case: [
+        { name: 'NZXT H510', price: 90000 },
+        { name: 'Fractal Design Meshify C', price: 95000 },
+      ]
+    };
+
+    const selected = {};
+
+    function showItems(category) {
+      const container = document.getElementById('items-display');
+      container.innerHTML = '';
+      components[category].forEach((item, index) => {
+        const div = document.createElement('div');
+        div.className = 'item';
+        div.textContent = `${item.name} - ${item.price.toLocaleString()} 원`;
+        div.onclick = () => selectItem(category, item);
+        container.appendChild(div);
+      });
+    }
+
+    function selectItem(category, item) {
+      selected[category] = item;
+      updateSelectedItems();
+    }
+
+    function updateSelectedItems() {
+      const container = document.getElementById('selected-items');
+      container.innerHTML = '';
+      let total = 0;
+      for (const [key, item] of Object.entries(selected)) {
+        total += item.price;
+        const div = document.createElement('div');
+        div.className = 'selected-item';
+        div.textContent = `${item.name} - ${item.price.toLocaleString()} 원`;
+        container.appendChild(div);
+      }
+      document.getElementById('total-price').textContent = total.toLocaleString();
+    }
+  </script>
+</body>
+</html>
