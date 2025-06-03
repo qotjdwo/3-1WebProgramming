@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PC 견적 홈</title>
   <style>
     body {
@@ -11,8 +11,8 @@
       padding: 20px;
       background-color: #f5f5f5;
     }
-    h2 {
-      margin-top: 40px;
+    h1 {
+      margin-top: 0;
     }
     .card-container {
       display: flex;
@@ -28,6 +28,10 @@
       text-decoration: none;
       color: black;
       overflow: hidden;
+      transition: transform 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
     }
     .card img {
       width: 100%;
@@ -66,24 +70,27 @@
   </style>
 </head>
 <body>
+
   <h1>추천 견적 리스트</h1>
   <div class="card-container">
     <a href="build_detail1.html" class="card">
-      <img src="images/gaming-pc.jpg" alt="게이밍 PC">
+      <img src="images/gaming-pc.jpg" alt="게이밍 PC" />
       <div class="card-body">
         <div class="card-title">🎮 게이밍용 PC</div>
         <div>Ryzen 5, RTX 4060, 16GB RAM</div>
       </div>
     </a>
+
     <a href="build_detail2.html" class="card">
-      <img src="images/office-pc.jpg" alt="사무용 PC">
+      <img src="images/office-pc.jpg" alt="사무용 PC" />
       <div class="card-body">
         <div class="card-title">💼 사무용 PC</div>
         <div>i3, 내장그래픽, 8GB RAM</div>
       </div>
     </a>
+
     <a href="build_detail3.html" class="card">
-      <img src="images/creator-pc.jpg" alt="크리에이터용 PC">
+      <img src="images/creator-pc.jpg" alt="크리에이터용 PC" />
       <div class="card-body">
         <div class="card-title">🎬 크리에이터용 PC</div>
         <div>i7, RTX 4070, 32GB RAM</div>
@@ -102,6 +109,7 @@
         <li>자유글 5</li>
       </ul>
     </div>
+
     <div class="post-section">
       <h3>📝 후기게시판 최신글</h3>
       <ul class="post-list">
@@ -112,6 +120,7 @@
         <li>후기 5</li>
       </ul>
     </div>
+
     <div class="post-section">
       <h3>❓ Q&A 최신글</h3>
       <ul class="post-list">
@@ -123,5 +132,6 @@
       </ul>
     </div>
   </div>
+
 </body>
 </html>
