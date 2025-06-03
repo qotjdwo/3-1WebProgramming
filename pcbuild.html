@@ -40,9 +40,19 @@
       border: 1px solid #ccc;
       background-color: #fff;
       cursor: pointer;
+
+      display: flex;
+      align-items: center;
     }
     .item:hover {
       background-color: #eee;
+    }
+    .item img {
+      width: 50px;
+      height: 50px;
+      object-fit: contain;
+      margin-right: 10px;
+      vertical-align: middle;
     }
     .selected-items {
       width: 300px;
@@ -89,40 +99,40 @@
   <script>
     const components = {
       cpu: [
-        { name: 'Intel i5-12400F', price: 200000 },
-        { name: 'AMD Ryzen 5 5600X', price: 230000 },
+        { name: 'Intel i5-12400F', price: 200000, img: 'images/cpu1.jpg' },
+        { name: 'AMD Ryzen 5 5600X', price: 230000, img: 'images/cpu2.jpg' },
       ],
       gpu: [
-        { name: 'NVIDIA RTX 4060', price: 450000 },
-        { name: 'AMD RX 6600 XT', price: 400000 },
+        { name: 'NVIDIA RTX 4060', price: 450000, img: 'images/gpu1.jpg' },
+        { name: 'AMD RX 6600 XT', price: 400000, img: 'images/gpu2.jpg' },
       ],
       mainboard: [
-        { name: 'ASUS B660M', price: 150000 },
-        { name: 'MSI B550M', price: 140000 },
+        { name: 'ASUS B660M', price: 150000, img: 'images/mainboard1.jpg' },
+        { name: 'MSI B550M', price: 140000, img: 'images/mainboard2.jpg' },
       ],
       ram: [
-        { name: 'Samsung DDR4 16GB', price: 60000 },
-        { name: 'Corsair Vengeance 16GB', price: 70000 },
+        { name: 'Samsung DDR4 16GB', price: 60000, img: 'images/ram1.jpg' },
+        { name: 'Corsair Vengeance 16GB', price: 70000, img: 'images/ram2.jpg' },
       ],
       ssd: [
-        { name: 'Samsung 980 500GB', price: 80000 },
-        { name: 'WD Blue 500GB', price: 75000 },
+        { name: 'Samsung 980 500GB', price: 80000, img: 'images/ssd1.jpg' },
+        { name: 'WD Blue 500GB', price: 75000, img: 'images/ssd2.jpg' },
       ],
       hdd: [
-        { name: 'Seagate 1TB', price: 50000 },
-        { name: 'WD Blue 1TB', price: 55000 },
+        { name: 'Seagate 1TB', price: 50000, img: 'images/hdd1.jpg' },
+        { name: 'WD Blue 1TB', price: 55000, img: 'images/hdd2.jpg' },
       ],
       psu: [
-        { name: 'Corsair 650W', price: 80000 },
-        { name: 'Seasonic 600W', price: 75000 },
+        { name: 'Corsair 650W', price: 80000, img: 'images/psu1.jpg' },
+        { name: 'Seasonic 600W', price: 75000, img: 'images/psu2.jpg' },
       ],
       cooler: [
-        { name: 'Cooler Master Hyper 212', price: 35000 },
-        { name: 'Noctua NH-U12S', price: 70000 },
+        { name: 'Cooler Master Hyper 212', price: 35000, img: 'images/cooler1.jpg' },
+        { name: 'Noctua NH-U12S', price: 70000, img: 'images/cooler2.jpg' },
       ],
       case: [
-        { name: 'NZXT H510', price: 90000 },
-        { name: 'Fractal Design Meshify C', price: 95000 },
+        { name: 'NZXT H510', price: 90000, img: 'images/case1.jpg' },
+        { name: 'Fractal Design Meshify C', price: 95000, img: 'images/case2.jpg' },
       ]
     };
 
@@ -134,7 +144,17 @@
       components[category].forEach((item, index) => {
         const div = document.createElement('div');
         div.className = 'item';
-        div.textContent = `${item.name} - ${item.price.toLocaleString()} 원`;
+
+        const img = document.createElement('img');
+        img.src = item.img;
+        img.alt = item.name;
+
+        const textSpan = document.createElement('span');
+        textSpan.textContent = `${item.name} - ${item.price.toLocaleString()} 원`;
+
+        div.appendChild(img);
+        div.appendChild(textSpan);
+
         div.onclick = () => selectItem(category, item);
         container.appendChild(div);
       });
