@@ -7,7 +7,7 @@
     body {
       font-family: 'Arial', sans-serif;
       margin: 20px;
-      background-color: #f5f5f5;
+      background-color: #f9f9f9;
     }
 
     h2 {
@@ -16,31 +16,43 @@
       font-size: 20px;
     }
 
+    /* 추천 견적 카드 */
     .card-container {
       display: flex;
       flex-wrap: wrap;
       gap: 16px;
+      margin-bottom: 40px;
     }
 
     .card {
       background-color: #fff;
       border-radius: 10px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      padding: 15px;
       width: 250px;
-      transition: transform 0.2s;
+      overflow: hidden;
       text-decoration: none;
       color: inherit;
+      transition: transform 0.2s;
     }
 
     .card:hover {
       transform: translateY(-5px);
     }
 
+    .card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 12px;
+    }
+
     .card-title {
       font-size: 16px;
       font-weight: bold;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
     .card-content {
@@ -48,81 +60,103 @@
       color: #444;
     }
 
-    .section {
+    /* 최신글 리스트 */
+    .post-list {
+      background-color: #fff;
+      border-radius: 6px;
+      padding: 15px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      max-width: 600px;
       margin-bottom: 40px;
+    }
+
+    .post-item {
+      padding: 8px 0;
+      border-bottom: 1px solid #ddd;
+      font-size: 14px;
+    }
+
+    .post-item:last-child {
+      border-bottom: none;
+    }
+
+    .post-item a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    .post-item a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
 <body>
 
   <h2>💡 추천 견적 리스트</h2>
-  <div class="card-container section">
+  <div class="card-container">
     <div class="card">
-      <div class="card-title">🎮 게이밍용 PC</div>
-      <div class="card-content">
-        Ryzen 5 5600X<br />
-        RTX 4060<br />
-        RAM 16GB<br />
-        총합: 1,000,000원
+      <img src="images/gaming-pc.jpg" alt="게이밍 PC" />
+      <div class="card-body">
+        <div class="card-title">🎮 게이밍용 PC</div>
+        <div class="card-content">
+          Ryzen 5 5600X<br />
+          RTX 4060<br />
+          RAM 16GB<br />
+          총합: 1,000,000원
+        </div>
       </div>
     </div>
     <div class="card">
-      <div class="card-title">🖥️ 사무용 PC</div>
-      <div class="card-content">
-        i3-12100<br />
-        RAM 8GB<br />
-        SSD 500GB<br />
-        총합: 500,000원
+      <img src="images/office-pc.jpg" alt="사무용 PC" />
+      <div class="card-body">
+        <div class="card-title">🖥️ 사무용 PC</div>
+        <div class="card-content">
+          i3-12100<br />
+          RAM 8GB<br />
+          SSD 500GB<br />
+          총합: 500,000원
+        </div>
       </div>
     </div>
     <div class="card">
-      <div class="card-title">🎨 그래픽 작업용 PC</div>
-      <div class="card-content">
-        Ryzen 9<br />
-        RTX 4070<br />
-        RAM 32GB<br />
-        총합: 2,000,000원
+      <img src="images/graphic-pc.jpg" alt="작업용 PC" />
+      <div class="card-body">
+        <div class="card-title">🎨 그래픽 작업용 PC</div>
+        <div class="card-content">
+          Ryzen 9<br />
+          RTX 4070<br />
+          RAM 32GB<br />
+          총합: 2,000,000원
+        </div>
       </div>
     </div>
   </div>
 
   <h2>📌 자유게시판 최신 글</h2>
-  <div class="card-container section">
-    <a href="view.html?board=free&id=5" class="card">
-      <div class="card-title">자유 글 5</div>
-      <div class="card-content">최신 자유 글 내용 요약...</div>
-    </a>
-    <a href="view.html?board=free&id=4" class="card">
-      <div class="card-title">자유 글 4</div>
-      <div class="card-content">내용 요약...</div>
-    </a>
-    <!-- 나머지 3개도 동일하게 추가 -->
+  <div class="post-list">
+    <div class="post-item"><a href="view.html?board=free&id=5">자유 글 5 - 새 글이 올라왔어요!</a></div>
+    <div class="post-item"><a href="view.html?board=free&id=4">자유 글 4 - 오늘의 추천 부품</a></div>
+    <div class="post-item"><a href="view.html?board=free&id=3">자유 글 3 - 견적 조언 부탁해요</a></div>
+    <div class="post-item"><a href="view.html?board=free&id=2">자유 글 2 - 조립 후기입니다</a></div>
+    <div class="post-item"><a href="view.html?board=free&id=1">자유 글 1 - 안녕하세요~</a></div>
   </div>
 
   <h2>📝 후기게시판 최신 글</h2>
-  <div class="card-container section">
-    <a href="view.html?board=review&id=5" class="card">
-      <div class="card-title">후기 글 5</div>
-      <div class="card-content">PC 잘 도착했어요!</div>
-    </a>
-    <a href="view.html?board=review&id=4" class="card">
-      <div class="card-title">후기 글 4</div>
-      <div class="card-content">가성비 최고 견적 추천</div>
-    </a>
-    <!-- 추가 글 -->
+  <div class="post-list">
+    <div class="post-item"><a href="view.html?board=review&id=5">후기 5 - 배송 빠르고 만족해요</a></div>
+    <div class="post-item"><a href="view.html?board=review&id=4">후기 4 - 가성비 최고 조합!</a></div>
+    <div class="post-item"><a href="view.html?board=review&id=3">후기 3 - 문제없이 작동 중</a></div>
+    <div class="post-item"><a href="view.html?board=review&id=2">후기 2 - 친절한 상담 감사합니다</a></div>
+    <div class="post-item"><a href="view.html?board=review&id=1">후기 1 - 완전 추천!</a></div>
   </div>
 
   <h2>❓ Q&A 게시판 최신 글</h2>
-  <div class="card-container section">
-    <a href="view.html?board=qna&id=5" class="card">
-      <div class="card-title">질문 글 5</div>
-      <div class="card-content">RTX 4060이 500W 파워에...</div>
-    </a>
-    <a href="view.html?board=qna&id=4" class="card">
-      <div class="card-title">질문 글 4</div>
-      <div class="card-content">B550 보드 호환 질문</div>
-    </a>
-    <!-- 추가 글 -->
+  <div class="post-list">
+    <div class="post-item"><a href="view.html?board=qna&id=5">질문 5 - 파워 용량 이 정도면 충분?</a></div>
+    <div class="post-item"><a href="view.html?board=qna&id=4">질문 4 - 그래픽카드 온도 질문</a></div>
+    <div class="post-item"><a href="view.html?board=qna&id=3">질문 3 - 메인보드 호환이 궁금해요</a></div>
+    <div class="post-item"><a href="view.html?board=qna&id=2">질문 2 - 부팅이 안돼요</a></div>
+    <div class="post-item"><a href="view.html?board=qna&id=1">질문 1 - 조립 순서 알려주세요</a></div>
   </div>
 
 </body>
