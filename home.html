@@ -2,10 +2,103 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>홈</title>
+  <title>홈 화면</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    h2 {
+      margin-top: 30px;
+    }
+    .build-list, .post-list {
+      margin-bottom: 30px;
+    }
+    .build {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+      background: #f9f9f9;
+    }
+    .build-title {
+      font-weight: bold;
+    }
+    .post-section {
+      margin-bottom: 20px;
+    }
+    .post-section h3 {
+      margin-bottom: 10px;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 5px;
+    }
+    .post-section ul {
+      list-style: none;
+      padding: 0;
+    }
+    .post-section ul li {
+      margin-bottom: 5px;
+    }
+    .post-section ul li a {
+      text-decoration: none;
+      color: #333;
+    }
+    .post-section ul li a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-  <h2>환영합니다!</h2>
-  <p>컴퓨터 견적 사이트에 오신 것을 환영합니다.</p>
+  <h2>💡 추천 견적 리스트</h2>
+  <div class="build-list">
+    <div class="build">
+      <div class="build-title">🎮 게이밍용 PC</div>
+      CPU: Ryzen 5 5600X, GPU: RTX 4060, RAM: 16GB<br />
+      총합: 약 100만원
+    </div>
+    <div class="build">
+      <div class="build-title">🖥️ 사무용 PC</div>
+      CPU: i3-12100, RAM: 8GB, SSD: 500GB<br />
+      총합: 약 50만원
+    </div>
+    <div class="build">
+      <div class="build-title">🎨 그래픽 작업용 PC</div>
+      CPU: Ryzen 9, GPU: RTX 4070, RAM: 32GB<br />
+      총합: 약 200만원
+    </div>
+  </div>
+
+  <h2>📌 최신 게시글</h2>
+  <div class="post-list">
+    <div class="post-section">
+      <h3>📋 자유게시판</h3>
+      <ul>
+        <li><a href="view.html?board=free&id=5">자유 글 5</a></li>
+        <li><a href="view.html?board=free&id=4">자유 글 4</a></li>
+        <li><a href="view.html?board=free&id=3">자유 글 3</a></li>
+        <li><a href="view.html?board=free&id=2">자유 글 2</a></li>
+        <li><a href="view.html?board=free&id=1">자유 글 1</a></li>
+      </ul>
+    </div>
+    <div class="post-section">
+      <h3>📝 후기게시판</h3>
+      <ul>
+        <li><a href="view.html?board=review&id=5">후기 글 5</a></li>
+        <li><a href="view.html?board=review&id=4">후기 글 4</a></li>
+        <li><a href="view.html?board=review&id=3">후기 글 3</a></li>
+        <li><a href="view.html?board=review&id=2">후기 글 2</a></li>
+        <li><a href="view.html?board=review&id=1">후기 글 1</a></li>
+      </ul>
+    </div>
+    <div class="post-section">
+      <h3>❓ Q&A 게시판</h3>
+      <ul>
+        <li><a href="view.html?board=qna&id=5">질문 글 5</a></li>
+        <li><a href="view.html?board=qna&id=4">질문 글 4</a></li>
+        <li><a href="view.html?board=qna&id=3">질문 글 3</a></li>
+        <li><a href="view.html?board=qna&id=2">질문 글 2</a></li>
+        <li><a href="view.html?board=qna&id=1">질문 글 1</a></li>
+      </ul>
+    </div>
+  </div>
 </body>
 </html>
